@@ -25,3 +25,5 @@
 框架基于CRA2.x搭建，纯粹是笔者图方便，看不懂react框架相关代码的同学，可以直接看文章链接
 
 ### 文章链接
+[简书链接](https://www.jianshu.com/p/9f2031fe3407)
+[掘金链接](https://juejin.im/post/5bf289bae51d4503a53fdc28)
