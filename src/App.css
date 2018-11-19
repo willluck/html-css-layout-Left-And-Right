@@ -1,0 +1,112 @@
+.mainContent {
+  /* 基本最外层父级元素，不需要做任何特殊处理,这里写着，只是在实际开发中，外层肯定会有一个嵌套的父级元素 */
+}
+
+.main-1::after {
+  /*通用css 用于清除浮动*/
+  content: "";
+  clear: both;
+  display: block;
+  height: 0;
+}
+
+.leftDivCommon {
+  /*左侧布局通用样式*/
+  background: gray;
+  width: 200px;
+  height: 400px;
+}
+
+.rightDivCommon {
+  /*右侧布局通用样式*/
+  background: #feee;
+  height: 300px;
+}
+
+.left-1 {
+  float: left;
+}
+
+.right-1 {
+  /* 第一种方法，右侧元素必须写margin-left，距离等于左侧元素的宽度，
+  因为左侧元素已经浮动了，浮动元素是脱离文档流的，如果不加这个margin，右侧宽度和左侧如果一样，就没什么区别，如果右侧宽度和
+  左侧不一样的话，那么加上背景颜色后，会出现右侧包裹左侧的情况出现，就是因为左侧元素脱离文档流后，右侧未浮动的元素会覆盖文档流当前的全部块级
+  */
+  margin-left: 200px;
+}
+
+.left-2 {
+  float: left;
+}
+
+.right-2 {
+  /* 
+    创建BFC的方法，BFC是一个上下文环境，创建方法如下
+    float的值不为none
+    position的值不为static或者relative
+    display的值为 table-cell, table-caption, inline-block, flex, 或者 inline-flex中的其中一个
+    overflow的值不为visible
+  */
+  overflow: auto;
+}
+
+.mainContent-3 {
+  position: relative;
+  min-height: 400px;
+}
+
+.left-3 {
+  /* 
+    这个方法有两个弊端，不建议采用这种方法
+    - 必须规定外层父级元素的position是relative或者absolute
+    - 采用绝对布局的方法的问题在于无法使用清除浮动让最外层的父级元素把全部内容给包住，如果是浮动元素，可以在外层包裹标签上写清除浮动，
+    这种方法要解决这个问题，只能在外层写height来强制规定高度包含左侧的高度，这种方法很不好，因为里面有可能还会包含一些其他的元素，需要精确计算好高度
+  */
+  position: absolute;
+}
+
+.right-3 {
+  margin-left: 200px;
+}
+
+.mainContent-4 {
+  /*
+  对table-cell元素设置百分比（如100%）的宽高值时无效的，但是可以将父元素设置display:table，
+  再将父元素设置百分比宽高，子元素table-cell会自动撑满父元素。这就可以做相对于整个页面的水平垂直居中
+  注意：
+  （1）display: table时padding无效
+  （2）display: table-row时margin、padding无效
+  （3）display: table-cell时margin无效
+  */
+  display: table;
+  width: 100%;
+}
+
+.left-4 {
+  display: table-cell;
+}
+
+.right-4 {
+  display: table-cell;
+}
+
+.left-5 {
+  float: left;
+}
+
+.right-5 {
+  float: left;
+  width: calc(100% - 200px);
+}
+
+.mainContent-6 {
+  display: flex;
+}
+
+.left-6 {
+  flex: 0 0 200px;
+}
+
+.right-6 {
+  flex: 1;
+}
